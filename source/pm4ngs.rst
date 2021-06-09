@@ -69,3 +69,13 @@ the **tree** command to visualize the data structure.
 
 .. image:: /_images/jupyter-8.png
 
+The pre-processing table is available in the `00 - Project Report` notebook. The links in the table gives access to the
+FastQC reports for each sample. The reports are used to select the trimming parameters.
+
+.. image:: /_images/jupyter-9.png
+
+.. image:: /_images/jupyter-10.png
+
+.. image:: /_images/jupyter-11.png
+
+.. image:: /_images/jupyter-12.png
