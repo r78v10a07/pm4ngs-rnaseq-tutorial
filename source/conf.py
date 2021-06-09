@@ -43,12 +43,10 @@ templates_path = ['_templates']
 source_suffix = '.rst'
 master_doc = 'index'
 
-exec(open('__init__.py').read())
-
 # The short X.Y version.
-version = __version__
+version = '1.0.0'
 # The full version, including alpha/beta/rc tags.
-release = __version__
+release = '1.0.0'
 
 # An rst epilog to apper at the end of every page
 rst_epilog = """

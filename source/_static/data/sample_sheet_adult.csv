@@ -1,0 +1,5 @@
+sample_name,file,description,replicate,condition
+DRR092341,,"Wild type, adult male head, replicate 1",1,WTAdult
+DRR092342,,"Wild type, adult male head, replicate 2",2,WTAdult
+DRR092343,,"Lol mutant, adult male head, replicate 1",1,LolAdult
+DRR092344,,"Lol mutant, adult male head, replicate 2",2,LolAdult
