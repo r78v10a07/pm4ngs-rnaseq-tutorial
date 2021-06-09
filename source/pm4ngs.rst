@@ -49,31 +49,23 @@ cloned from the github repo `ncbi/cwl-ngs-workflows-cbb`_ to the folder **bin/cw
 
 The project organizational data structure is:
 
+.. image:: /_images/jupyter-6.png
+
+Jupyter Notebook: 01 - Pre-processing QC
+----------------------------------------
+
+The first notebook download the SRA data using the accessions defined in the sample sheet. Execute all cells until the
+**Retrieving data using fastq-dump**. This cell will submit the CWL workflow. Open a terminal to check that the
+**fastq-dump** command is working.
+
+.. image:: /_images/jupyter-7.png
+
+Once all cells are execute completely the *fastq* samples will be available at the **data/PRJDB5673** directory. Run
+the **tree** command to visualize the data structure.
+
 .. code-block:: bash
 
-    (pm4ngs_venv) r78v10a07@instance-veraalva:~$ tree -L 2 Dros_lol_mut/
-    Dros_lol_mut/
-    ├── LICENSE
-    ├── README.md
-    ├── bin
-    │   └── cwl
-    ├── config
-    │   └── init.py
-    ├── data
-    │   └── PRJDB5673
-    ├── doc
-    ├── index.html
-    ├── notebooks
-    │   ├── 00 - Project Report.ipynb
-    │   ├── 01 - Pre-processing QC.ipynb
-    │   ├── 02 - Samples trimming.ipynb
-    │   ├── 03 - Alignments and Quantification.ipynb
-    │   ├── 04 - DGA.ipynb
-    │   └── 05 - GO enrichment.ipynb
-    ├── requirements
-    │   └── conda-env-dependencies.yaml
-    ├── results
-    │   └── PRJDB5673
-    ├── src
-    └── tmp
-    12 directories, 11 files
+    (pm4ngs_venv) r78v10a07@instance-veraalva:~$ tree -L 3 Dros_lol_mut/
+
+.. image:: /_images/jupyter-8.png
+
