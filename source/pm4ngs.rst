@@ -51,8 +51,8 @@ The project organizational data structure is:
 
 .. image:: /_images/jupyter-6.png
 
-Jupyter Notebook: 01 - Pre-processing QC
-----------------------------------------
+Pre-processing QC
+-----------------
 
 The first notebook download the SRA data using the accessions defined in the sample sheet. Execute all cells until the
 **Retrieving data using fastq-dump**. This cell will submit the CWL workflow. Open a terminal to check that the
@@ -70,7 +70,7 @@ the **tree** command to visualize the data structure.
 .. image:: /_images/jupyter-8.png
 
 The pre-processing table is available in the `00 - Project Report` notebook. The links in the table gives access to the
-FastQC reports for each sample. The reports are used to select the trimming parameters.
+FastQC_ reports for each sample. The reports are used to select the trimming parameters.
 
 .. image:: /_images/jupyter-9.png
 
@@ -79,3 +79,45 @@ FastQC reports for each sample. The reports are used to select the trimming para
 .. image:: /_images/jupyter-11.png
 
 .. image:: /_images/jupyter-12.png
+
+.. _FastQC: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
+
+Samples trimming
+----------------
+
+Trimmomatic_ performs a variety of useful trimming tasks for illumina paired-end and single ended data.The selection
+of trimming steps and their associated parameters are supplied on the command line.
+
+The current trimming steps are:
+
+ * ILLUMINACLIP: Cut adapter and other illumina-specific sequences from the read.
+ * SLIDINGWINDOW: Perform a sliding window trimming, cutting once the average quality within the window falls below a threshold.
+ * LEADING: Cut bases off the start of a read, if below a threshold quality
+ * TRAILING: Cut bases off the end of a read, if below a threshold quality
+ * CROP: Cut the read to a specified length
+ * HEADCROP: Cut the specified number of bases from the start of the read
+ * MINLEN: Drop the read if it is below a specified length
+ * TOPHRED33: Convert quality scores to Phred-33
+ * TOPHRED64: Convert quality scores to Phred-64
+
+It works with FASTQ (using phred + 33 or phred + 64 quality scores, depending on the Illumina pipeline used), either
+uncompressed or gzipp'ed FASTQ. Use of gzip format is determined based on the .gz extension.
+
+PM4NGS uses standard options for Trimmomatic but in this example we need to add **HEADCROP:10** as it is shown in next
+figure:
+
+.. image:: /_images/jupyter-13.png
+
+Updating the `00 - Project Report` notebook.
+
+.. image:: /_images/jupyter-14.png
+
+Check the FastQC reports to check if the trimming reduced the distortion in the first 10 bases.
+
+.. image:: /_images/jupyter-15.png
+
+.. _Trimmomatic: http://www.usadellab.org/cms/?page=trimmomatic
+
+Alignment and Quantification
+----------------------------
+
