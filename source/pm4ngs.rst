@@ -7,6 +7,9 @@ Read PM4NGS published manuscript in GIGAScience_
 
 .. _GIGAScience: https://academic.oup.com/gigascience/article/10/1/giaa141/6067195
 
+Sample sheet
+------------
+
 Sample Sheet for Drosophila BioProject PRJDB5673_
 
 .. csv-table::
@@ -24,6 +27,9 @@ Upload the sample sheet file to the GCP instance through the Jupyter server
 .. image:: /_images/jupyter-2.png
 
 .. image:: /_images/jupyter-3.png
+
+Creating the PM4NGS RNA-Seq project
+-----------------------------------
 
 Open a terminal to execute `pm4ngs-rnaseq`. This command will create an organizational data structure for the analysis.
 
