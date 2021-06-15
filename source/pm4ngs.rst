@@ -70,31 +70,6 @@ provide key biological processes, molecular functions, and cellular components f
     | Go enrichment          | :ref:`go_enrichment`                  |                                        | `goenrichment`_ | gene IDs      | TSV                 |  Python code in the notebook     |
     +------------------------+---------------------------------------+----------------------------------------+-----------------+---------------+---------------------+----------------------------------+
 
-.. _download_quality_control.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/workflows/sra/download_quality_control.cwl
-.. _fastq-dump.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/sra-tools/fastq-dump.cwl
-.. _fastqc.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/fastqc/fastqc.cwl
-
-.. _trimmomatic-PE.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/trimmomatic/trimmomatic-PE.cwl
-.. _trimmomatic-SE.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/trimmomatic/trimmomatic-SE.cwl
-
-.. _rnaseq-alignment-quantification.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/workflows/RNA-Seq/rnaseq-alignment-quantification.cwl
-.. _igvtools-count.cw: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/igvtools/igvtools-count.cwl
-.. _rseqc-bam_stat.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/rseqc/rseqc-bam_stat.cwl
-.. _rseqc-infer_experiment.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/rseqc/rseqc-infer_experiment.cw
-.. _rseqc-junction_annotation.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/rseqc/rseqc-junction_annotation.cwl
-.. _rseqc-junction_saturation.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/rseqc/rseqc-junction_saturation.cwl
-.. _rseqc-read_distribution.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/rseqc/rseqc-read_distribution.cwl
-.. _rseqc-read_quality.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/rseqc/rseqc-read_quality.cwl
-.. _samtools-flagstat.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/tree/master/tools/samtools/samtools-flagstat.cwl
-.. _samtools-index.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/tree/master/tools/samtools/samtools-index.cwl
-.. _samtools-sort.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/tree/master/tools/samtools/samtools-sort.cwl
-.. _samtools-stats.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/tree/master/tools/samtools/samtools-stats.cwl
-.. _samtools-view.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/tree/master/tools/samtools/samtools-view.cwl
-.. _star.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/star/star.cwl
-.. _tpmcalculator.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/tpmcalculator/tpmcalculator.cwl
-
-.. _goenrichment: https://pypi.org/project/goenrichment/
-
 Sample sheet
 ------------
 
@@ -273,6 +248,10 @@ FastQC_ reports for each sample. The reports are used to select the trimming par
 
 .. image:: /_images/jupyter-12.png
 
+The CWL workflow for this step is: download_quality_control.cwl_
+
+.. image:: /_images/cwl-1.png
+
 .. _FastQC: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
 
 .. _samples_trimming:
@@ -314,6 +293,10 @@ Updating the `00 - Project Report` notebook.
 Check the FastQC reports to check if the trimming reduced the distortion in the first 10 bases.
 
 .. image:: /_images/jupyter-15.png
+
+The CWL workflow for this step is: `trimming-qc-se.cwl <https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/workflows/pre-processing/trimming-qc-se.cwl>`_
+
+.. image:: /_images/cwl-2.png
 
 .. _Trimmomatic: http://www.usadellab.org/cms/?page=trimmomatic
 
@@ -384,6 +367,14 @@ The quantification values read counts and TPM are shown in a boxplot for easy co
 .. image:: /_images/jupyter-21.png
 
 .. image:: /_images/jupyter-22.png
+
+The CWL workflow for this step is: `rnaseq-alignment-quantification.cwl <https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/workflows/RNA-Seq/rnaseq-alignment-quantification.cwl>`_
+
+.. image:: /_images/cwl-3.png
+
+It is based in another workflow for the alignment: `star-alignment.cwl <https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/workflows/Alignments/star-alignment.cwl>`_
+
+.. image:: /_images/cwl-4.png
 
 .. _STAR: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3530905/
 .. _Samtools: https://pubmed.ncbi.nlm.nih.gov/33590861/
@@ -519,3 +510,29 @@ The list of differential GO terms are available in the tables per GO name space.
 .. image:: /_images/jupyter-33.png
 
 .. image:: /_images/jupyter-34.png
+
+
+.. _download_quality_control.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/workflows/sra/download_quality_control.cwl
+.. _fastq-dump.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/sra-tools/fastq-dump.cwl
+.. _fastqc.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/fastqc/fastqc.cwl
+
+.. _trimmomatic-PE.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/trimmomatic/trimmomatic-PE.cwl
+.. _trimmomatic-SE.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/trimmomatic/trimmomatic-SE.cwl
+
+.. _rnaseq-alignment-quantification.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/workflows/RNA-Seq/rnaseq-alignment-quantification.cwl
+.. _igvtools-count.cw: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/igvtools/igvtools-count.cwl
+.. _rseqc-bam_stat.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/rseqc/rseqc-bam_stat.cwl
+.. _rseqc-infer_experiment.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/rseqc/rseqc-infer_experiment.cw
+.. _rseqc-junction_annotation.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/rseqc/rseqc-junction_annotation.cwl
+.. _rseqc-junction_saturation.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/rseqc/rseqc-junction_saturation.cwl
+.. _rseqc-read_distribution.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/rseqc/rseqc-read_distribution.cwl
+.. _rseqc-read_quality.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/rseqc/rseqc-read_quality.cwl
+.. _samtools-flagstat.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/tree/master/tools/samtools/samtools-flagstat.cwl
+.. _samtools-index.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/tree/master/tools/samtools/samtools-index.cwl
+.. _samtools-sort.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/tree/master/tools/samtools/samtools-sort.cwl
+.. _samtools-stats.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/tree/master/tools/samtools/samtools-stats.cwl
+.. _samtools-view.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/tree/master/tools/samtools/samtools-view.cwl
+.. _star.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/star/star.cwl
+.. _tpmcalculator.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/tpmcalculator/tpmcalculator.cwl
+
+.. _goenrichment: https://pypi.org/project/goenrichment/
