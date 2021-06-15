@@ -8,8 +8,7 @@ PM4NGS RNASeq Tutorial
 
 .. toctree::
    :numbered:
-   :maxdepth: 3
-   :hidden:
+   :maxdepth: 4
 
    gcp
    ncbi

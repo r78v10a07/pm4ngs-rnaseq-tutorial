@@ -3,11 +3,16 @@
 RNA-seq of the lobe-less (lol) mutants in Drosophila melanogaster
 =================================================================
 
-BioProject: PRJDB5673_
-
 Lobe-less (lol) encodes a long noncoding RNA (lncRNA) required for the development of Drosophila mushroom body,
 a center of insect memories and learning. RNA-seq was carried out in the control (w[1118]) and lol mutant flies
 to identify genes regulated by lol lncRNA.
+
+From the manuscript: `Genetic interactions between Protein Kinase D and Lobe mutants during eye development of
+Drosophila melanogaster <https://hereditasjournal.biomedcentral.com/articles/10.1186/s41065-019-0113-9>`_
+
+.. image:: /_images/lol.png
+
+BioProject: PRJDB5673_
 
 .. image:: /_images/bioproject-1.png
     :alt: BioProject: PRJDB5673
