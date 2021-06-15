@@ -93,9 +93,6 @@ provide key biological processes, molecular functions, and cellular components f
 .. _star.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/star/star.cwl
 .. _tpmcalculator.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/tpmcalculator/tpmcalculator.cwl
 
-.. _deseq2-2conditions.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/R/deseq2-2conditions.cwl
-.. _edgeR-2conditions.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/R/edgeR-2conditions.cwl
-
 .. _goenrichment: https://pypi.org/project/goenrichment/
 
 Sample sheet
@@ -335,10 +332,58 @@ For a complete list of PM4NGS pre-formatted genomes see: https://pm4ngs.readthed
 
 .. image:: /_images/jupyter-16.png
 
-This workflow is the most time consuming part and require setting proper computer resourses like number of cores and RAM.
+This workflow is the most time consuming part and require setting proper computer resources like number of cores and RAM.
 For this tutorial we need at least 64 GB of RAM and 16 cores. GCP machine type *n1-standard-16* provides those resources.
 
 .. image:: /_images/jupyter-17.png
+
+Once finished, the alignment and quantification workflow will create for each sample these files:
+
+.. note::
+
+    **STAR alignment stats**
+
+    * DRR092341Aligned.out.stats
+    * DRR092341Log.final.out
+    * DRR092341ReadsPerGene.out.tab
+
+    **Alignments files sorted from SAMtools**
+
+    * DRR092341_sorted.bam
+    * DRR092341_sorted.bam.bai
+
+    **Read counts and TPMs from TPMCalculator**
+
+    * DRR092341_sorted_genes.ent.gz
+    * DRR092341_sorted_genes.out.gz
+    * DRR092341_sorted_genes.uni.gz
+    * DRR092341_sorted_transcripts.ent.gz
+    * DRR092341_sorted_transcripts.out.gz
+
+    ** Post-processing QC from RSeQC**
+
+    * DRR092341_sorted_rseqc.bam_stat.txt
+    * DRR092341_sorted_rseqc.infer_experiment.txt
+    * DRR092341_sorted_rseqc.junction.bed.gz
+    * DRR092341_sorted_rseqc.junction.xls.gz
+    * DRR092341_sorted_rseqc.junctionSaturation_plot.pdf
+    * DRR092341_sorted_rseqc.read_distribution.txt
+    * DRR092341_sorted_rseqc.splice_events.pdf
+    * DRR092341_sorted_rseqc.splice_junction.pdf
+
+.. image:: /_images/jupyter-18.png
+
+Updating the `00 - Project Report` notebook.
+
+.. image:: /_images/jupyter-19.png
+
+.. image:: /_images/jupyter-20.png
+
+The quantification values read counts and TPM are shown in a boxplot for easy comparison.
+
+.. image:: /_images/jupyter-21.png
+
+.. image:: /_images/jupyter-22.png
 
 .. _STAR: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3530905/
 .. _Samtools: https://pubmed.ncbi.nlm.nih.gov/33590861/
@@ -350,10 +395,127 @@ For this tutorial we need at least 64 GB of RAM and 16 cores. GCP machine type *
 Differential Gene Expression Analysis
 -------------------------------------
 
-sgasdgas
+The DGE analysis is executed in the **04 - DGA** notebook. The workflow uses DESeq2_ and EdgeR_ for the identification of
+differentially expressed genes. R scripts are available at `deseq2-2conditions.cwl`_ and `edgeR-2conditions.cwl`_.
 
+In our approach, genes are designated as differentially expressed if they are identified by DESeq2 and EdgeR. Those
+genes are shown under the **Intersection** results.
+
+.. code-block:: bash
+
+    results/PRJDB5673/dga/
+    ├── WTAdult_vs_LolAdult_deseq2_dga.log
+    ├── WTAdult_vs_LolAdult_edge_dga.log
+    ├── WTAdult_vs_LolAdult_heatmap_union.log
+    ├── WTAdult_vs_LolAdult_volcano_union.log
+    ├── condition_WTAdult_vs_LolAdult_deseq2.csv
+    ├── condition_WTAdult_vs_LolAdult_deseq2_correlation_heatmap.pdf
+    ├── condition_WTAdult_vs_LolAdult_deseq2_expression_heatmap.pdf
+    ├── condition_WTAdult_vs_LolAdult_deseq2_pca.csv
+    ├── condition_WTAdult_vs_LolAdult_deseq2_pca.pdf
+    ├── condition_WTAdult_vs_LolAdult_deseq2_volcano.pdf
+    ├── condition_WTAdult_vs_LolAdult_edgeR.csv
+    ├── condition_WTAdult_vs_LolAdult_edgeR_correlation_heatmap.pdf
+    ├── condition_WTAdult_vs_LolAdult_edgeR_expression_heatmap.pdf
+    ├── condition_WTAdult_vs_LolAdult_edgeR_pca.csv
+    ├── condition_WTAdult_vs_LolAdult_edgeR_pca.pdf
+    ├── condition_WTAdult_vs_LolAdult_edgeR_volcano.pdf
+    ├── condition_WTAdult_vs_LolAdult_intersection.csv
+    ├── condition_WTAdult_vs_LolAdult_intersection_correlation_heatmap.pdf
+    ├── condition_WTAdult_vs_LolAdult_intersection_expression_heatmap.pdf
+    ├── condition_WTAdult_vs_LolAdult_intersection_over-expressed.csv
+    ├── condition_WTAdult_vs_LolAdult_intersection_pca.pdf
+    ├── condition_WTAdult_vs_LolAdult_intersection_under-expressed.csv
+    └── condition_WTAdult_vs_LolAdult_intersection_volcano.pdf
+
+    0 directories, 23 files
+
+Updating the `00 - Project Report` notebook.
+
+.. image:: /_images/jupyter-23.png
+
+DGE plots are automatically generated.
+
+Volcano Plots
+_____________
+
+.. image:: /_images/jupyter-24.png
+
+Sample correlation
+__________________
+
+.. image:: /_images/jupyter-25.png
+
+Expression correlation
+______________________
+
+.. image:: /_images/jupyter-26.png
+
+PCA plots
+_________
+
+.. image:: /_images/jupyter-27.png
+
+List of differentially expressed genes
+______________________________________
+
+.. image:: /_images/jupyter-28.png
+
+.. _DESeq2: https://pubmed.ncbi.nlm.nih.gov/20979621/
+.. _EdgeR: https://pubmed.ncbi.nlm.nih.gov/22287627/
+.. _deseq2-2conditions.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/R/deseq2-2conditions.cwl
+.. _edgeR-2conditions.cwl: https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/tools/R/edgeR-2conditions.cwl
 
 .. _go_enrichment:
 
 Gene Ontology Enrichment
-________________________
+------------------------
+
+Gene Ontoogy enrichment analysis is executed with an *in-house* developed python package named
+`goenrichment <https://pypi.org/project/goenrichment/>`_. This tool creates a database by integrating information from
+`Gene Ontology <http://current.geneontology.org/ontology/go.obo>`_,
+`NCBI Gene <https://www.ncbi.nlm.nih.gov/gene>`_ using the files `gene_info <https://ftp.ncbi.nlm.nih.gov/gene/DATA/gene_info.gz>`_
+and `gene2go <https://ftp.ncbi.nlm.nih.gov/gene/DATA/gene2go.gz>`_. Read more in the package web page to create a
+database for another organism.
+
+Available databases can be downloaded from https://ftp.ncbi.nlm.nih.gov/pub/goenrichment/
+
+Next image shows the pre-defined code in PM4NGS for downloading the GO enrichment database for *Drosophila*. Current
+version of the database contains **43 987** GO terms cros-referenced to **13 741** genes.
+
+.. image:: /_images/jupyter-29.png
+
+The GO enrichment tool uses three parameters to identify differential GO terms between the two conditions.
+
+.. note::
+
+    **min_category_depth**
+
+        Min GO term graph depth to include in the report. Default: 4
+
+    **min_category_size**
+
+        Min number of gene in a GO term to include in the report. Default: 3
+
+    **max_category_size**
+
+        Max number of gene in a GO term to include in the report. Default: 500
+        This 500 is good for very well annotated organism as human or mouse.
+
+        In the case of *Drosophila* use 10 to get relevant results.
+
+    **In the Jupyter Notebook change the values to**
+
+    .. image:: /_images/jupyter-30.png
+
+Updating the `00 - Project Report` notebook.
+
+.. image:: /_images/jupyter-31.png
+
+The list of differential GO terms are available in the tables per GO name space.
+
+.. image:: /_images/jupyter-32.png
+
+.. image:: /_images/jupyter-33.png
+
+.. image:: /_images/jupyter-34.png
