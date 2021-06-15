@@ -325,6 +325,25 @@ Check the FastQC reports to check if the trimming reduced the distortion in the 
 Alignment and Quantification
 ----------------------------
 
+The alignment and quantification workflow uses STAR_ as aligner, Samtools_ for filtering and sorting BAM files,
+TPMCalculator_ for RNA-Seq quantification, RSeQC_ for post processing quality control and IGVtools for creating
+visualization files.
+
+In this tutorial we are analysing *Drosophila* samples. Therefore, we need the *Drosophila* genome sequence and
+annotations. PM4NGS provides the **dm6** genome pre-formatted for the alignment and quantification workflow.
+For a complete list of PM4NGS pre-formatted genomes see: https://pm4ngs.readthedocs.io/en/latest/pipelines/genomes.html
+
+.. image:: /_images/jupyter-16.png
+
+This workflow is the most time consuming part and require setting proper computer resourses like number of cores and RAM.
+For this tutorial we need at least 64 GB of RAM and 16 cores. GCP machine type *n1-standard-16* provides those resources.
+
+.. image:: /_images/jupyter-17.png
+
+.. _STAR: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3530905/
+.. _Samtools: https://pubmed.ncbi.nlm.nih.gov/33590861/
+.. _TPMCalculator: https://pubmed.ncbi.nlm.nih.gov/30379987/
+.. _RSeQC: https://pubmed.ncbi.nlm.nih.gov/22743226/
 
 .. _dga:
 
