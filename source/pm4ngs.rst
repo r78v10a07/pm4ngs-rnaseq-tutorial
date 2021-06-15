@@ -151,42 +151,42 @@ cloned from the github repo `ncbi/cwl-ngs-workflows-cbb`_ to the folder **bin/cw
     * **project_name**:
         Name of the project with no space nor especial characters. This will be used as project folder's name.
 
-        Use: Dros_lol_mut
+        **Use: Dros_lol_mut**
     * **dataset_name**:
         Dataset to process name with no space nor especial characters. This will be used as folder name to group the
         data. This folder will be created under the **data/{{dataset_name}}** and **results/{{dataset_name}}**.
 
-        Use: PRJDB5673
+        **Use: PRJDB5673**
     * **is_data_in_SRA**:
         If the data is in the SRA set this to y. A CWL workflow to download the data from the SRA database to the
         folder **data/{{dataset_name}}** and execute FastQC on it will be included in the **01 - Pre-processing QC.ipynb** notebook.
 
         Set this option to **n**, if the fastq files names and location are included in the sample sheet.
 
-        Use: y
+        **Use: y**
     * **Select sequencing_technology**:
         Select one of the available sequencing technologies in your data.
 
         Values: 1 - single-end, 2 - paired-end
 
-        Use: 1
+        **Use: 1**
     * **create_demo**:
         If the data is downloaded from the SRA and this option is set to y, only the number of spots specified
         in the next variable will be downloaded. Useful to test the workflow.
 
-        Use: n
+        **Use: n**
     * **number_spots**:
         Number of sport to download from the SRA database. It is ignored is the **create_demo** is set to **n**.
 
-        Press Enter
+        **Press Enter**
     * **organism**:
         Organism to process, e.g. human. This is used to link the selected genes to the NCBI gene database.
 
-        Use: drosophila
+        **Use: drosophila**
     * **genome_name**:
         Genome name , e.g. hg38 or mm10.
 
-        Use: dm6
+        **Use: dm6**
     * **genome_dir**:
         Absolute path to the directory with the genome annotation (genome.fa, genes.gtf) to be used by the workflow
         or the name of the genome.
@@ -195,48 +195,48 @@ cloned from the github repo `ncbi/cwl-ngs-workflows-cbb`_ to the folder **bin/cw
         **03 - Alignments and Quantification.ipynb** notebook to download the genome files.
         The genome data will be at **data/{{dataset_name}}/{{genome_name}}/**
 
-        Press Enter
+        **Press Enter**
     * **aligner_index_dir**:
         Absolute path to the directory with the genome indexes for STAR.
 
         If **{{genome_name}}/STAR** is used, PM4NGS will include a cell in the
         **03 - Alignments and Quantification.ipynb** notebook to create the genome indexes for STAR.
 
-        Press Enter
+        **Press Enter**
     * **genome_fasta**:
         Absolute path to the genome fasta file
 
         If **{{genome_name}}/genome.fa** is used, PM4NGS will use the downloaded fasta file.
 
-        Press Enter
+        **Press Enter**
     * **genome_gtf**:
         Absolute path to the genome GTF file
 
         If **{{genome_name}}/genes.gtf** is used, PM4NGS will use the downloaded GTF file.
 
-        Press Enter
+        **Press Enter**
     * **genome_bed**:
         Absolute path to the genome BED file
 
         If **{{genome_name}}/genes.bed** is used, PM4NGS will use the downloaded BED file.
 
-        Press Enter
+        **Press Enter**
     * **fold_change**:
         A real number used as fold change cutoff value for the DG analysis, e.g. 2.0.
 
-        Press Enter
+        **Press Enter**
     * **fdr**:
         Adjusted P-Value to be used as cutoff in the DG analysis, e.g. 0.05.
 
-        Press Enter
+        **Press Enter**
     * **use_docker**:
         Set this to y if you will be using Docker. Otherwise Conda needs to be installed in the computer.
 
-        Press Enter
+        **Press Enter**
     * **max_number_threads**:
         Number of threads available in the computer.
 
-        Press Enter
+        **Press Enter**
 
 
 .. image:: /_images/jupyter-5.png
