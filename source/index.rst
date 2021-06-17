@@ -10,11 +10,10 @@ PM4NGS RNASeq Tutorial
    :numbered:
    :maxdepth: 4
 
+   drosophila
    gcp
    python
    jupyter
-   ncbi
-   drosophila
    pm4ngs
 
 Introduction

@@ -12,12 +12,25 @@ Drosophila melanogaster <https://hereditasjournal.biomedcentral.com/articles/10.
 
 .. image:: /_images/lol.png
 
+BioProject
+----------
+
+A BioProject is a collection of biological data related to a single initiative, originating from a single organization
+or from a consortium. A BioProject record provides users a single place to find links to the diverse data types
+generated for that project.
+
 BioProject: PRJDB5673_
 
 .. image:: /_images/bioproject-1.png
     :alt: BioProject: PRJDB5673
 
 .. _PRJDB5673: https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJDB5673
+
+SRA
+---
+
+Sequence Read Archive (SRA) data, available through multiple cloud providers and NCBI servers, is the largest
+publicly available repository of high throughput sequencing data.
 
 List of SRA samples in the BioProject
 
