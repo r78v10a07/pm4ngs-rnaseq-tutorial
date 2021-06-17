@@ -3,10 +3,6 @@
 PM4NGS for RNA-Seq data analysis
 ================================
 
-Read PM4NGS published manuscript in GIGAScience_
-
-.. _GIGAScience: https://academic.oup.com/gigascience/article/10/1/giaa141/6067195
-
 Differential expression (DE) analysis allows the comparison of RNA expression levels between multiple conditions.
 
 The differential gene expression and GO enrichment pipeline is comprised of five steps, shown in next Table.
