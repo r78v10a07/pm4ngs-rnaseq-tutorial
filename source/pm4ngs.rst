@@ -224,6 +224,10 @@ The first notebook download the SRA data using the accessions defined in the sam
 
 .. image:: /_images/jupyter-7.png
 
+The CWL workflow for this step is: download_quality_control.cwl_
+
+.. image:: /_images/cwl-1.png
+
 Once all cells are execute completely the *fastq* samples will be available at the **data/PRJDB5673** directory. Run
 the **tree** command to visualize the data structure.
 
@@ -243,10 +247,6 @@ FastQC_ reports for each sample. The reports are used to select the trimming par
 .. image:: /_images/jupyter-11.png
 
 .. image:: /_images/jupyter-12.png
-
-The CWL workflow for this step is: download_quality_control.cwl_
-
-.. image:: /_images/cwl-1.png
 
 .. _FastQC: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
 
@@ -278,6 +278,10 @@ figure:
 
 .. image:: /_images/jupyter-13.png
 
+The CWL workflow for this step is: `trimming-qc-se.cwl <https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/workflows/pre-processing/trimming-qc-se.cwl>`_
+
+.. image:: /_images/cwl-2.png
+
 The result files for the trimming workflow are available at: **results/PRJDB5673/trimmomatic**
 
 .. image:: /_images/terminal-5.png
@@ -289,10 +293,6 @@ Updating the `00 - Project Report` notebook.
 Check the FastQC reports to check if the trimming reduced the distortion in the first 10 bases.
 
 .. image:: /_images/jupyter-15.png
-
-The CWL workflow for this step is: `trimming-qc-se.cwl <https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/workflows/pre-processing/trimming-qc-se.cwl>`_
-
-.. image:: /_images/cwl-2.png
 
 .. _Trimmomatic: http://www.usadellab.org/cms/?page=trimmomatic
 
@@ -315,6 +315,14 @@ This workflow is the most time consuming part and require setting proper compute
 For this tutorial we need at least 64 GB of RAM and 16 cores. GCP machine type *n1-standard-16* provides those resources.
 
 .. image:: /_images/jupyter-17.png
+
+The CWL workflow for this step is: `rnaseq-alignment-quantification.cwl <https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/workflows/RNA-Seq/rnaseq-alignment-quantification.cwl>`_
+
+.. image:: /_images/cwl-3.png
+
+It is based in another workflow for the alignment: `star-alignment.cwl <https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/workflows/Alignments/star-alignment.cwl>`_
+
+.. image:: /_images/cwl-4.png
 
 Once finished, the alignment and quantification workflow will create for each sample these files:
 
@@ -363,14 +371,6 @@ The quantification values read counts and TPM are shown in a boxplot for easy co
 .. image:: /_images/jupyter-21.png
 
 .. image:: /_images/jupyter-22.png
-
-The CWL workflow for this step is: `rnaseq-alignment-quantification.cwl <https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/workflows/RNA-Seq/rnaseq-alignment-quantification.cwl>`_
-
-.. image:: /_images/cwl-3.png
-
-It is based in another workflow for the alignment: `star-alignment.cwl <https://github.com/ncbi/cwl-ngs-workflows-cbb/blob/master/workflows/Alignments/star-alignment.cwl>`_
-
-.. image:: /_images/cwl-4.png
 
 .. _STAR: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3530905/
 .. _Samtools: https://pubmed.ncbi.nlm.nih.gov/33590861/
