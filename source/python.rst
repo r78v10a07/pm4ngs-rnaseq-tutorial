@@ -18,7 +18,7 @@ site directories.
 
 Creation of virtual environments is done by executing the command venv:
 
-.. code-block:: bash
+.. note::
 
     python3 -m venv /path/to/new/virtual/environment
 
@@ -31,7 +31,7 @@ Once a virtual environment has been created, it can be **“activated”** using
 binary directory. The invocation of the script is platform-specific (<_venv> must be replaced by the path of the
 directory containing the virtual environment):
 
-.. code-block:: bash
+.. note::
 
     $ source /path/to/new/virtual/environment/bin/activate
 
@@ -42,8 +42,12 @@ Creates a Python virtual environment named: **pm4ngs_venv** for installing PM4NG
 
 .. code-block:: bash
 
+    veraalva@instance-veraalva:~$ which python3
+    /usr/bin/python3
     veraalva@instance-veraalva:~$ python3 -m venv pm4ngs_venv
     veraalva@instance-veraalva:~$ source pm4ngs_venv/bin/activate
+    (pm4ngs_venv) veraalva@instance-veraalva:~$ which python3
+    /home/r78v10a07/pm4ngs_venv/bin/python3
     (pm4ngs_venv) veraalva@instance-1:~$ pip install wheel
     (pm4ngs_venv) veraalva@instance-1:~$ pip install pm4ngs
 
