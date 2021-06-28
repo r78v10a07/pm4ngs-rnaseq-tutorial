@@ -10,7 +10,7 @@ Create a GCP instance with 16 CPUs and 60GB of RAM (machine type: **n1-standard-
 **Boot disk** box to select Operating system: Ubuntu, Version: Ubuntu 20.04 LTS. Click on **Management** to select
 **Preemptibility: ON**
 
-.. image:: /_images/instance-creation.jpg
+.. image:: /_images/instance-creation2.png
     :alt: GCP instance creation
 
 Accessing the instance with SSH
